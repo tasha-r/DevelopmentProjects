@@ -16,19 +16,19 @@ namespace CalculatorLambda.Tests
         [Fact]
         public void Add_WhenCalledWithTwoFloats_AddsNumbersAndReturnsResult()
         {
-            var result = Calculator.Add((float)2.65, (float)3.1);
+            var result = Calculator.Add((decimal)2.65, (decimal)3.1);
 
-            Assert.Equal(5.75, result);
+            Assert.Equal((decimal)5.75, result);
         }
 
         [Fact]
         public void Add_WhenCalledWithMultipleNumbers_AddsNumbersAndReturnsResult()
         {
-            var numbers = new List<float> { 10, (float)5.5, (float)6.2, 2 };
+            var numbers = new List<decimal> { 10, (decimal)5.5, (decimal)6.2, 2 };
 
             var result = Calculator.Add(numbers);
 
-            Assert.Equal(23.72, result);
+            Assert.Equal((decimal)23.7, result);
         }
 
         [Fact]
@@ -42,9 +42,9 @@ namespace CalculatorLambda.Tests
         [Fact]
         public void Subtract_WhenCalledWithTwoFloats_SubtractsNumbersAndReturnsResult()
         {
-            var result = Calculator.Subtract((float)6.348, (float)1.74);
+            var result = Calculator.Subtract((decimal)6.34, (decimal)1.742);
 
-            Assert.Equal((float)4.60799980163574, result);
+            Assert.Equal((decimal)4.598, result);
         }
 
         [Fact]
@@ -58,9 +58,9 @@ namespace CalculatorLambda.Tests
         [Fact]
         public void Multiply_WhenCalledWithTwoFloats_MultipliesNumbersAndReturnsResult()
         {
-            var result = Calculator.Multiply((float)6.5, (float)5.5);
+            var result = Calculator.Multiply((decimal)6.5, (decimal)5.5);
 
-            Assert.Equal(35.75, result);
+            Assert.Equal((decimal)35.75, result);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace CalculatorLambda.Tests
         [Fact]
         public void Divide_WhenCalledWithTwoFloats_DividesNumbersAndReturnsResult()
         {
-            var result = Calculator.Divide((float)10.8, (float)5.4);
+            var result = Calculator.Divide((decimal)10.8, (decimal)5.4);
 
             Assert.Equal(2, result);
         }

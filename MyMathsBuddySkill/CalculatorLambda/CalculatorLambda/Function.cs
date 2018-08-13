@@ -272,7 +272,7 @@ namespace CalculatorLambda
         /// </summary>
         /// <param name="speech"></param>
         /// <returns>string</returns>
-        private List<float> GetNumbers()
+        private List<decimal> GetNumbers()
         {
             var slots = _requestBody.Intent.Slots;
 
@@ -281,7 +281,7 @@ namespace CalculatorLambda
                 return null;
             }
 
-            var numbers = new List<float>();
+            var numbers = new List<decimal>();
             GetNumber(slots, NUMBERONE, numbers);
             GetNumber(slots, NUMBERTWO, numbers);
 
@@ -295,12 +295,12 @@ namespace CalculatorLambda
         /// <param name="key"></param>
         /// <param name="numbers"></param>
         /// <returns>void</returns>
-        private void GetNumber(Dictionary<string, Slot> slots, string key, List<float> numbers)
+        private void GetNumber(Dictionary<string, Slot> slots, string key, List<decimal> numbers)
         {
             if (slots.ContainsKey(key))
             {
                 if (slots.TryGetValue(key, out Slot numberSlot)
-                    && (float.TryParse(numberSlot.Value, out float number)))
+                    && (decimal.TryParse(numberSlot.Value, out decimal number)))
                 {
                     numbers.Add(number);
                 }
@@ -313,7 +313,7 @@ namespace CalculatorLambda
         /// </summary>
         /// <param name="skillData"></param>
         /// <returns>string weather newfact or empty string</returns>
-        private string AddNumbers(SkillData skillData, List<float> numbers)
+        private string AddNumbers(SkillData skillData, List<decimal> numbers)
         {
             var speechMessage = string.Empty;
             switch (numbers.Count)
@@ -342,7 +342,7 @@ namespace CalculatorLambda
         /// </summary>
         /// <param name="skillData"></param>
         /// <returns>string weather newfact or empty string</returns>
-        private string MultiplyNumbers(SkillData skillData, List<float> numbers)
+        private string MultiplyNumbers(SkillData skillData, List<decimal> numbers)
         {
             var speechMessage = string.Empty;
             switch (numbers.Count)
