@@ -49,7 +49,7 @@
                 "The number is {NumberTwo}",
                 "Number {NumberTwo}",
                 "Number is {NumberTwo}",
-                "The first number is {NumberTwo}"
+                "The second number is {NumberTwo}"
               ]
             }
           ],
@@ -75,6 +75,59 @@
             "what is the result of {NumberOne} plus {NumberTwo}",
             "what's the result of {NumberOne} plus {NumberTwo}",
             "tell me what the result of {NumberOne} plus {NumberTwo} is"
+          ]
+        },
+        {
+          "name":"MultiplyNumbers",
+          "slots":[
+            {
+              "name":"NumberOne",
+              "type":"AMAZON.NUMBER",
+              "samples":[
+                "{NumberOne}",
+                "The number is {NumberOne}",
+                "Number {NumberOne}",
+                "Number is {NumberOne}",
+                "The first number is {NumberOne}"
+              ]
+            },
+            {
+              "name":"NumberTwo",
+              "type":"AMAZON.NUMBER",
+              "samples":[
+                "{NumberTwo}",
+                "The number is {NumberTwo}",
+                "Number {NumberTwo}",
+                "Number is {NumberTwo}",
+                "The second number is {NumberTwo}"
+              ]
+            }
+          ],
+          "samples":[
+            "multiply the numbers {NumberOne} and {NumberTwo}",
+            "multiply numbers {NumberOne} and {NumberTwo}",
+            "multiply {NumberOne} with {NumberTwo}",
+            "multiply {NumberOne} by {NumberTwo}",
+            "product of {NumberOne} and {NumberTwo}",
+            "multiply {NumberOne} and {NumberTwo}",
+            "{NumberOne} multiplied by {NumberTwo}",
+            "{NumberOne} times {NumberTwo}",
+            "{NumberOne} times by {NumberTwo}",
+            "what is {NumberOne} multiplied by {NumberTwo}",
+            "what's {NumberOne} multiplied by {NumberTwo}",
+            "what is {NumberOne} times {NumberTwo}",
+            "what's {NumberOne} times {NumberTwo}",
+            "what is {NumberOne} times by {NumberTwo}",
+            "what's {NumberOne} times by {NumberTwo}",
+            "tell me what {NumberOne} multiplied by {NumberTwo} is",
+            "what is the result of {NumberOne} multiplied by {NumberTwo}",
+            "what's the result of {NumberOne} multiplied by {NumberTwo}",
+            "tell me what the result of {NumberOne} times {NumberTwo} is",
+            "what is the result of {NumberOne} times {NumberTwo}",
+            "what's the result of {NumberOne} times {NumberTwo}",
+            "tell me the product of {NumberOne} and {NumberTwo}",
+            "what is the product of {NumberOne} and {NumberTwo}",
+            "what's the product of {NumberOne} and {NumberTwo}"
           ]
         }
       ],
@@ -110,6 +163,33 @@
               }
             }
           ]
+        },
+        {
+          "name":"MultiplyNumbers",
+          "confirmationRequired":false,
+          "prompts":{
+
+          },
+          "slots":[
+            {
+              "name":"NumberOne",
+              "type":"AMAZON.NUMBER",
+              "confirmationRequired":false,
+              "elicitationRequired":true,
+              "prompts":{
+                "elicitation":"Elicit.Slot.688496001649.524967585644"
+              }
+            },
+            {
+              "name":"NumberTwo",
+              "type":"AMAZON.NUMBER",
+              "confirmationRequired":false,
+              "elicitationRequired":true,
+              "prompts":{
+                "elicitation":"Elicit.Slot.688496001649.1094534499113"
+              }
+            }
+          ]
         }
       ]
     },
@@ -119,19 +199,19 @@
         "variations":[
           {
             "type":"PlainText",
-            "value":"What's the first number?"
-          },
-          {
-            "type":"PlainText",
-            "value":"What is the first number?"
-          },
-		  {
-            "type":"PlainText",
             "value":"Can you tell me the first number?"
           },
           {
             "type":"PlainText",
             "value":"Could you tell me the first number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"What's the first number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"What is the first number?"
           }
         ]
       },
@@ -141,10 +221,6 @@
           {
             "type":"PlainText",
             "value":"What's the second number?"
-          },
-		  {
-            "type":"PlainText",
-            "value":"What is the second number?"
           },
           {
             "type":"PlainText",
@@ -161,6 +237,10 @@
           {
             "type":"PlainText",
             "value":"And the second number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"What is the second number?"
           }
         ]
       }
