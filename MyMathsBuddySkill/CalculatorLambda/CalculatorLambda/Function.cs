@@ -319,10 +319,10 @@ namespace CalculatorLambda
             switch (numbers.Count)
             {
                 case 0:
-                    speechMessage = $"The result of zero plus zero equals zero. ";
+                    speechMessage = $"The result of 0 plus 0 equals 0. ";
                     break;
                 case 1:
-                    speechMessage = $"The result of {numbers[0]} plus zero is {numbers[0]}.";
+                    speechMessage = $"The result of {numbers[0]} plus 0 is {numbers[0]}.";
                     break;
                 case 2:
                     var result = Calculator.Add(numbers[0], numbers[1]);
@@ -348,10 +348,10 @@ namespace CalculatorLambda
             switch (numbers.Count)
             {
                 case 0:
-                    speechMessage = $"The result of zero multiplied by zero equals zero. ";
+                    speechMessage = $"The result of 0 multiplied by 0 equals 0. ";
                     break;
                 case 1:
-                    speechMessage = $"The result of {numbers[0]} multiplied by zero is zero.";
+                    speechMessage = $"The result of {numbers[0]} multiplied by 0 is 0.";
                     break;
                 case 2:
                     var result = Calculator.Multiply(numbers[0], numbers[1]);
