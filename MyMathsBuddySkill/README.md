@@ -1,0 +1,2 @@
+# My Maths Buddy
+My Maths Buddy is an Alexa skill which helps people with basic calculations. Because I am still learning how to develop Alexa skills, I have been using the AWS repository <a href="https://github.com/alexa/skill-sample-csharp-fact">skill-sample-csharp-fact</a> as a guide. I have also copied some of the code from this repository, including the entire contents of the `MyMathsBuddySkill/CalculatorLambda/CalculatorLambda/AlexaAPI` folder.

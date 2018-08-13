@@ -1,0 +1,169 @@
+{
+  "interactionModel":{
+    "languageModel":{
+      "invocationName":"my maths buddy",
+      "intents":[
+        {
+          "name":"AMAZON.FallbackIntent",
+          "samples":[
+
+          ]
+        },
+        {
+          "name":"AMAZON.CancelIntent",
+          "samples":[
+
+          ]
+        },
+        {
+          "name":"AMAZON.HelpIntent",
+          "samples":[
+
+          ]
+        },
+        {
+          "name":"AMAZON.StopIntent",
+          "samples":[
+
+          ]
+        },
+        {
+          "name":"AddNumbers",
+          "slots":[
+            {
+              "name":"NumberOne",
+              "type":"AMAZON.NUMBER",
+              "samples":[
+                "{NumberOne}",
+                "The number is {NumberOne}",
+                "Number {NumberOne}",
+                "Number is {NumberOne}",
+                "The first number is {NumberOne}"
+              ]
+            },
+            {
+              "name":"NumberTwo",
+              "type":"AMAZON.NUMBER",
+              "samples":[
+                "{NumberTwo}",
+                "The number is {NumberTwo}",
+                "Number {NumberTwo}",
+                "Number is {NumberTwo}",
+                "The first number is {NumberTwo}"
+              ]
+            }
+          ],
+          "samples":[
+            "add numbers {NumberOne} and {NumberTwo}",
+            "add {NumberOne} and {NumberTwo}",
+            "add {NumberOne} to {NumberTwo}",
+            "sum of {NumberOne} and {NumberTwo}",
+            "sum {NumberOne} and {NumberTwo}",
+            "{NumberOne} plus {NumberTwo}",
+            "what is {NumberOne} add {NumberTwo}",
+            "what's {NumberOne} add {NumberTwo}",
+            "tell me what {NumberOne} add {NumberTwo} is",
+            "what is the result of {NumberOne} add {NumberTwo}",
+            "what's the result of {NumberOne} add {NumberTwo}",
+            "tell me what the result of {NumberOne} add {NumberTwo} is",
+            "what is the sum of {NumberOne} and {NumberTwo}",
+            "what's the sum of {NumberOne} and {NumberTwo}",
+            "tell me the sum of {NumberOne} and {NumberTwo}",
+            "what is {NumberOne} plus {NumberTwo}",
+            "what's {NumberOne} plus {NumberTwo}",
+            "tell me what {NumberOne} plus {NumberTwo} is",
+            "what is the result of {NumberOne} plus {NumberTwo}",
+            "what's the result of {NumberOne} plus {NumberTwo}",
+            "tell me what the result of {NumberOne} plus {NumberTwo} is"
+          ]
+        }
+      ],
+      "types":[
+
+      ]
+    },
+    "dialog":{
+      "intents":[
+        {
+          "name":"AddNumbers",
+          "confirmationRequired":false,
+          "prompts":{
+
+          },
+          "slots":[
+            {
+              "name":"NumberOne",
+              "type":"AMAZON.NUMBER",
+              "confirmationRequired":false,
+              "elicitationRequired":true,
+              "prompts":{
+                "elicitation":"Elicit.Slot.688496001649.524967585644"
+              }
+            },
+            {
+              "name":"NumberTwo",
+              "type":"AMAZON.NUMBER",
+              "confirmationRequired":false,
+              "elicitationRequired":true,
+              "prompts":{
+                "elicitation":"Elicit.Slot.688496001649.1094534499113"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts":[
+      {
+        "id":"Elicit.Slot.688496001649.524967585644",
+        "variations":[
+          {
+            "type":"PlainText",
+            "value":"What's the first number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"What is the first number?"
+          },
+		  {
+            "type":"PlainText",
+            "value":"Can you tell me the first number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"Could you tell me the first number?"
+          }
+        ]
+      },
+      {
+        "id":"Elicit.Slot.688496001649.1094534499113",
+        "variations":[
+          {
+            "type":"PlainText",
+            "value":"What's the second number?"
+          },
+		  {
+            "type":"PlainText",
+            "value":"What is the second number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"Can you tell me the second number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"Could you tell me the second number?"
+          },
+          {
+            "type":"PlainText",
+            "value":"And the second?"
+          },
+          {
+            "type":"PlainText",
+            "value":"And the second number?"
+          }
+        ]
+      }
+    ]
+  }
+}
