@@ -196,23 +196,28 @@ namespace CalculatorLambda
             {
                 return false;
             }
-            else if (_requestBody.Intent.Name == "AddNumbers")
-            {
-                speechMessage = AddNumbers(skillData, numbers);
 
-                if (!string.IsNullOrEmpty(speechMessage))
+            switch(_requestBody.Intent.Name)
+            {
+                case "AddNumbers":
+                    speechMessage = AddNumbers(skillData, numbers);
+                    break;
+                case "MultiplyNumbers":
+                    speechMessage = MultiplyNumbers(skillData, numbers);
+                    break;
+                default:
+                    Log($"Intent name not matched to anything. Intent name: {_requestBody.Intent.Name}");
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(speechMessage))
+            {
+                _response.ResponseBody.OutputSpeech = new SsmlOutputSpeech
                 {
-                    _response.ResponseBody.OutputSpeech = new SsmlOutputSpeech
-                    {
-                        Ssml = SsmlDecorate(speechMessage),
-                    };
-                }
+                    Ssml = SsmlDecorate(speechMessage),
+                };
 
                 processed = true;
-            }
-            else
-            {
-                Log($"Intent name not matched to anything. Intent name: {_requestBody.Intent.Name}");
             }
 
             return processed;
@@ -322,6 +327,35 @@ namespace CalculatorLambda
                 case 2:
                     var result = Calculator.Add(numbers[0], numbers[1]);
                     speechMessage = $"The result of {numbers[0]} plus {numbers[1]} is {result}.";
+                    break;
+                default:
+                    speechMessage = "Sorry, something went wrong. Please try again. ";
+                    break;
+            }
+
+            return speechMessage;
+        }
+
+        /// <summary>
+        ///  Multiply numbers together. Delegate to the dialog
+        ///  if the Complete protocol flag is not set
+        /// </summary>
+        /// <param name="skillData"></param>
+        /// <returns>string weather newfact or empty string</returns>
+        private string MultiplyNumbers(SkillData skillData, List<float> numbers)
+        {
+            var speechMessage = string.Empty;
+            switch (numbers.Count)
+            {
+                case 0:
+                    speechMessage = $"The result of zero multiplied by zero equals zero. ";
+                    break;
+                case 1:
+                    speechMessage = $"The result of {numbers[0]} multiplied by zero is zero.";
+                    break;
+                case 2:
+                    var result = Calculator.Multiply(numbers[0], numbers[1]);
+                    speechMessage = $"The result of {numbers[0]} multiplied by {numbers[1]} is {result}.";
                     break;
                 default:
                     speechMessage = "Sorry, something went wrong. Please try again. ";
