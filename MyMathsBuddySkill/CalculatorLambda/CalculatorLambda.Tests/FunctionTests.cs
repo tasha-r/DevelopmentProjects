@@ -112,7 +112,7 @@ namespace CalculatorLambda.Tests
 
             var response = new Function().FunctionHandler(request, context.Object);
 
-            Assert.Equal("<speak>The result of 4 plus zero is 4.</speak>", ((SsmlOutputSpeech)response.ResponseBody.OutputSpeech).Ssml);
+            Assert.Equal("<speak>The result of 4 plus 0 is 4.</speak>", ((SsmlOutputSpeech)response.ResponseBody.OutputSpeech).Ssml);
         }
 
         [Fact]
