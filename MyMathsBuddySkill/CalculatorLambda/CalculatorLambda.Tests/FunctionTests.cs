@@ -131,6 +131,36 @@ namespace CalculatorLambda.Tests
         }
 
         [Fact]
+        public void FunctionHandler_WhenCalledWithMultiplyNumbersDialogIntentRequestWithInvalidNumber_TreatsNumberAsZeroAndReturnsResultInResponseMessage()
+        {
+            SetupIntentRequest(out Mock<ILambdaContext> context, out SkillRequest request, "MultiplyNumbers", "COMPLETED");
+            request.RequestBody.Intent.Slots = new Dictionary<string, Slot>
+            {
+                { "NumberOne", new Slot { Name = "NumberOne", Value = "Hello" } },
+                { "NumberTwo", new Slot { Name = "NumberTwo", Value = "4" } },
+            };
+
+            var response = new Function().FunctionHandler(request, context.Object);
+
+            Assert.Equal("<speak>The result of 4 multiplied by 0 is 0.</speak>", ((SsmlOutputSpeech)response.ResponseBody.OutputSpeech).Ssml);
+        }
+
+        [Fact]
+        public void FunctionHandler_WhenCalledWithMultiplyNumbersDialogIntentRequestWithNumbers_ReturnsProductOfNumbersInMessage()
+        {
+            SetupIntentRequest(out Mock<ILambdaContext> context, out SkillRequest request, "MultiplyNumbers", "COMPLETED");
+            request.RequestBody.Intent.Slots = new Dictionary<string, Slot>
+            {
+                { "NumberOne", new Slot { Name = "NumberOne", Value = "4" } },
+                { "NumberTwo", new Slot { Name = "NumberTwo", Value = "6" } },
+            };
+
+            var response = new Function().FunctionHandler(request, context.Object);
+
+            Assert.Equal("<speak>The result of 4 multiplied by 6 is 24.</speak>", ((SsmlOutputSpeech)response.ResponseBody.OutputSpeech).Ssml);
+        }
+
+        [Fact]
         public void FunctionHandler_WhenCalledWithCancelIntentRequest_ReturnsResponseWithFlagAndMessageSet()
         {
             SetupIntentRequest(out Mock<ILambdaContext> context, out SkillRequest request, "AMAZON.CancelIntent");
