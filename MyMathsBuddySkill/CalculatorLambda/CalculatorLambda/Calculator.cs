@@ -5,14 +5,14 @@ namespace CalculatorLambda
 {
     public class Calculator
     {
-        public static float Add(float num_1, float num_2)
+        public static decimal Add(decimal num_1, decimal num_2)
         {
             return num_1 + num_2;
         }
 
-        public static float Add(List<float> numbers)
+        public static decimal Add(List<decimal> numbers)
         {
-            var total = (float)0;
+            var total = (decimal)0;
 
             foreach (var number in numbers)
             {
@@ -22,17 +22,17 @@ namespace CalculatorLambda
             return total;
         }
 
-        public static float Subtract(float num_1, float num_2)
+        public static decimal Subtract(decimal num_1, decimal num_2)
         {
             return num_1 - num_2;
         }
 
-        public static float Multiply(float num_1, float num_2)
+        public static decimal Multiply(decimal num_1, decimal num_2)
         {
             return num_1 * num_2;
         }
 
-        public static float Divide(float num_1, float num_2)
+        public static decimal Divide(decimal num_1, decimal num_2)
         {
             return num_1 / num_2;
         }
